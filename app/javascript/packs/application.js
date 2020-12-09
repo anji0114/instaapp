@@ -18,3 +18,22 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+import $ from 'jquery'
+import axios from 'axios'
+
+document.addEventListener('turbolinks:load', () => {
+  $('.avatar-post').on('change', function (e) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      $('#new-avatar').attr('src', e.target.result);
+      $('.old-avatar').addClass('hidden');
+      $('.new-avatar').removeClass('hidden')
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+
+  $('.profile_image').on('click', ()=> {
+    $('.avatar-post').trigger('click')
+  })
+})

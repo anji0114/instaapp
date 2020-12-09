@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     @account_name = current_user.account_name
+    @profile = current_user.prepare_profile
   end
 
   def edit
