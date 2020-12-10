@@ -1,4 +1,5 @@
 %p home
-= link_to 'プロフィール', profile_path
-= link_to 'ログイン', new_user_session_path
-= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+%p= link_to 'プロフィール', profile_path
+%p= link_to 'ログイン', new_user_session_path
+%p= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+%p=link_to 'article作成', new_article_path	

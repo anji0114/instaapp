@@ -1,3 +1,7 @@
+.container
+  %ul
+    = @article.errors.full_messages.each do |message|
+      %li= message
 = form_with(model: @article, url: articles_path, method: 'post', local: true) do |f|
   %div
     %h2= f.label :pictures
