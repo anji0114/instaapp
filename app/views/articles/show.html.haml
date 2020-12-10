@@ -1,1 +1,6 @@
-show
+.container
+  %p show
+  %p= @article.content
+  - @pictures.each do |pictures|
+    .pictures
+      =image_tag pictures
