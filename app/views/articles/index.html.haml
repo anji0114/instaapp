@@ -1,5 +1,17 @@
-%p home
-%p= link_to 'プロフィール', profile_path
-%p= link_to 'ログイン', new_user_session_path
-%p= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
-%p=link_to 'article作成', new_article_path	
+.container
+  %p= link_to 'プロフィール', profile_path
+  %p= link_to 'ログイン', new_user_session_path
+  %p= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+  %p=link_to 'article作成', new_article_path	
+
+  - @articles.each do |article|
+    .card
+      .user_info
+        .user_info_image= image_tag article.user.profile.avatar
+        .user_info_name
+          %p= article.user.account_name
+          %p= article.created_at
+      %p= article.content
+      - article.pictures.each do |picture|
+        .pictures
+          =image_tag picture

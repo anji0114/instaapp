@@ -1,7 +1,34 @@
-.pictures {
+$size-percent: 100%;
 
+.pictures {
   img {
-    width: 80%;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card {
+  width: 100%;
+  // height: 80px;
+  margin-bottom: 10px;
+}
+
+.user_info {
+  display: flex;
+
+  &_image {
+
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    img {
+      width: $size-percent;
+      height: $size-percent;
+      border-radius: $size-percent;
+    }
+  }
+
+  &_name {
+    margin-right: 10px;
   }
 }
