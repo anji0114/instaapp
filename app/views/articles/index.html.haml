@@ -1,17 +1,24 @@
 .container
-  %p= link_to 'プロフィール', profile_path
-  %p= link_to 'ログイン', new_user_session_path
-  %p= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
-  %p=link_to 'article作成', new_article_path	
+  .link
+    %p= link_to 'プロフィール', profile_path
+    %p= link_to 'ログイン', new_user_session_path
+    %p= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+    %p=link_to 'article作成', new_article_path	
 
   - @articles.each do |article|
-    .card
-      .user_info
-        .user_info_image= image_tag article.user.profile.avatar
-        .user_info_name
-          %p= article.user.account_name
-          %p= article.created_at
-      %p= article.content
+    .article
+      .user
+        .user_avatar= image_tag article.user.avatar_image
+        .user_info
+          .user_info_name
+            %p= article.user.account_name
+          .article_created
+            %p= article.created_at
       - article.pictures.each do |picture|
         .pictures
-          =image_tag picture
+          = image_tag picture
+      .article_active
+        = image_tag 'heart-active.png'
+        = image_tag 'comment.png'
+        = image_tag 'share.png'
+      %p= article.content

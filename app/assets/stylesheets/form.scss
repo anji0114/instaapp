@@ -22,3 +22,50 @@ input, select, textarea {
     color: #979797;
   }
 }
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+
+  p{
+    font-size: $font-size;
+  }
+
+  .cancel-btn {
+    color: #2F80ED;
+  }
+
+  .post-btn {
+    display: inline;
+    border: none;
+    background: none;
+    font-size: $font-size;
+    color: #BDBDBD;
+  }
+}
+
+.post_user {
+  display: flex;
+  margin-bottom: 30px;
+  &_avatar {
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+
+    img {
+      width: $size-percent;
+      height: $size-percent;
+      border-radius: $size-percent;
+    }
+  }
+
+  &_name {
+    font-size: $font-size;
+    margin: auto 18px;
+  }
+}
+
+.album-btn {
+  margin-bottom: 25px;
+}
