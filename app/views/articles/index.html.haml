@@ -13,7 +13,7 @@
           .user_info_name
             %p= article.user.account_name
           .article_created
-            %p= article.created_at
+            %p= date_format(article.created_at)
       - article.pictures.each do |picture|
         .pictures
           = image_tag picture
