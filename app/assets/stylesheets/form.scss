@@ -5,6 +5,7 @@ input, select, textarea {
     padding: 8px;
     border: none;
     border-bottom: 1px solid $base-border-color;
+    word-wrap: break-word;
   }
 }
 

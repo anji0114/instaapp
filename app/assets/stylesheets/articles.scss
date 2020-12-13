@@ -13,6 +13,7 @@ $user-avatar-size: 30px;
   .user {
     display: flex;
     margin-bottom: 18px;
+    position: relative;
   
     &_avatar {
       width: $user-avatar-size;
@@ -44,20 +45,28 @@ $user-avatar-size: 30px;
     margin-bottom: 13px;
     width: 100%;
     img {
+      max-height: 280px;
       display: block;
       margin: auto;
       width: auto;
-      max-height: 250px;
       max-width: 100%;
     }
   }
 
   &_active {
     display: flex;
+    margin-bottom: 9px;
     img {
       width: 16px;
       height: 15px;
       margin-right: 7px;
     }
+  }
+
+  &_content {
+    font-size: 12px;
+    line-height: 18px;
+    color: #333333;
+    word-wrap: break-word;
   }
 }
