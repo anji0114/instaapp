@@ -9,6 +9,10 @@ class Article < ApplicationRecord
   has_many_attached :pictures
   has_many :likes, dependent: :destroy
 
+  def like_count
+    likes.count
+  end
+
 
   private
   def validate_pictures

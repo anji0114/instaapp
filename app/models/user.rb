@@ -16,6 +16,10 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
+  end
+
   def has_written?(article)
     articles.exists?(id: article.id)
   end

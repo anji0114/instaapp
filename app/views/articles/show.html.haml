@@ -1,6 +1,24 @@
 .container
-  %p show
-  %p= @article.content
-  - @pictures.each do |pictures|
-    .pictures
-      =image_tag pictures
+  .article{data: {article_id: @article.id}}
+    .user
+      .user_avatar= image_tag @article.user.avatar_image
+      .user_info
+        .user_info_name
+          %p= @article.user.account_name
+        .article_created
+          %p= date_format(@article.created_at)
+      - if user_signed_in? && current_user.has_written?(@article)
+        .dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content.mini
+            = link_to '削除する', article_path(@article), data: {method: 'delete', confirm: '本当に削除してもいいですか'}
+    - @article.pictures.each do |picture|
+      .pictures
+        = image_tag picture
+      .article_active
+        = image_tag 'heart-active.png'
+        = image_tag 'comment.png'
+        = link_to "http://twitter.com/share?url=https://localhost:3000/articles/#{@article.id}&text=投稿をシェア"  do
+          = image_tag 'share.png'
+    .article_content
+      %p= @article.content
