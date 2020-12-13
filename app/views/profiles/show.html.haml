@@ -2,10 +2,8 @@
   .profile
     .account_name= @account_name
     .profile_image.old-avatar
-      -# = link_to edit_profile_path do
       = image_tag current_user.avatar_image
     .profile_image.new-avatar.hidden
-      -# = link_to edit_profile_path do
       = image_tag '', id: 'new-avatar'
     .profile_info
       .profile_info_posts
@@ -17,11 +15,6 @@
       .profile_info_following
         %p 10
         %p Following
-    .profile_article
-      %P article
-
-  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
-    .hidden
-      = f.file_field :avatar, class: 'avatar-post'
-      = f.submit '保存', class: 'avatar-btn'
+    .card
+      = render 'commons/articles', articles: current_user.articles
 = javascript_pack_tag 'profile'
