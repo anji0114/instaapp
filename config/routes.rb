@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :update]
 
   resources :articles do
-    resource :like, only: [:create, :destroy]
+    resource :like, only: [:show, :create, :destroy]
   end
 end

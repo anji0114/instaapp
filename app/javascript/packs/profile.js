@@ -29,15 +29,3 @@ document.addEventListener('DOMContentLoaded', () => {
   avatarFile()
 })
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   $('.card').each( function (index, card) {
-//     $(card.children).each( function (index, child) {
-//       const articleId = $(child).attr('data-article-id')
-//       axios.get(`/articles/${articleId}`)
-//         .then((response) => {
-//           const image = response.data
-//           console.log(image.attr('img'))
-//         })
-//     })
-//   })
-// })
