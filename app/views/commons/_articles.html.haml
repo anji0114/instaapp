@@ -15,10 +15,16 @@
     - article.pictures.each do |picture|
       .pictures
         = image_tag picture
-      .article_active
-        = image_tag 'heart-active.png'
-        = image_tag 'comment.png'
+    .article_active
+      -if user_signed_in?
+        .active-heart.hidden
+          = image_tag 'heart-active.png'
+        .inactive-heart.hidden
+          = image_tag 'heart.png'
+        .comment-btn
+          = image_tag 'comment.png'
         = link_to "http://twitter.com/share?url=https://localhost:3000/articles/#{article.id}&text=投稿をシェア"  do
           = image_tag 'share.png'
-      .article_content
-        %p= article.content
+    .article_content
+      %p= article.content
+= javascript_pack_tag 'article'

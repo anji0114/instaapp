@@ -15,6 +15,9 @@
       .profile_info_following
         %p 10
         %p Following
-    .card
-      = render 'commons/articles', articles: current_user.articles
+    = render 'commons/articles', articles: current_user.articles
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    .hidden
+      = f.file_field :avatar, class: 'avatar-post'
+      = f.submit '保存', class: 'avatar-btn'
 = javascript_pack_tag 'profile'

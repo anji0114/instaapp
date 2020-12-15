@@ -5,5 +5,4 @@
     %p= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
     %p=link_to 'article作成', new_article_path	
 
-  .card
-    = render 'commons/articles', articles: @articles
+  = render 'commons/articles', articles: @articles
