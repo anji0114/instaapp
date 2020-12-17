@@ -1,5 +1,14 @@
-%P show
-= link_to 'comment', new_article_comment_path(@article)
+.container
+  .comments{data: {article_id: @article.id}}
+    .comments_top
+      .comments_top_title 
+        %p Comment
+      = link_to root_path do
+        .comments_top_back back
 
-- @comments.each do |comment|
-  %p= comment.content
+    - @comments.each do |comment|
+      .comment
+        .comment_avatar= image_tag comment.user.avatar_image
+        %p= comment.user.account_name
+        %p= comment.content
+    .comment_post= link_to '投稿', new_article_comment_path(@article)

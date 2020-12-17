@@ -1,0 +1,37 @@
+@import './variables'; 
+$user-avatar-size: 30px;
+.comments {
+  &_top {
+    position: relative;
+    margin-top: 40px;
+    &_title {
+      text-align: center;
+      font-size: 16px;
+      color: #333A42;
+    }
+     &_back {
+       position: absolute;
+       top: 0;
+     }
+  }
+
+  .comment_avatar {
+    width: $user-avatar-size;
+    height: $user-avatar-size;
+    margin: auto 0;
+
+    img {
+      width: $size-percent;
+      height: $size-percent;
+      border-radius: $size-percent;
+    }
+  }
+
+  .comment {
+    margin-top: 30px;
+
+    &_post {
+      margin-top: 30px;
+    }
+  }
+}

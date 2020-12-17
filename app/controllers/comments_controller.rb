@@ -1,16 +1,16 @@
 class CommentsController < ApplicationController
+  before_action :set_article, only: [:index, :new, :create]
   def index
-    @article = Article.find(params[:article_id])
-    @comments = @article.comments.all
+    @comments = @article.comments
+
+    render json: @comments
   end
 
   def new
     @comment = current_user.comments.build
-    @article = Article.find(params[:article_id])
   end
 
   def create
-    @article = Article.find(params[:article_id])
     @comment = current_user.comments.build(comment_params)
     if @comment.save
       redirect_to article_comments_path(@article)
@@ -21,6 +21,10 @@ class CommentsController < ApplicationController
   end
 
   private
+  def set_article
+    @article = Article.find(params[:article_id])
+  end
+
   def comment_params
     params.require(:comment).permit(:content).merge(article_id: params[:article_id])
   end
