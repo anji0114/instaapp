@@ -1,7 +1,10 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < Api::ApplicationController
   before_action :set_article, only: [:index, :new, :create]
+
   def index
-    @comments = @article.comments
+    article = Article.find(params[:article_id])
+    comments = article.comments
+    render json: comments
   end
 
   def new
@@ -10,14 +13,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      redirect_to article_comments_path(@article)
-    else
-      flash.now[:error] = '更新できませんでした'
-      render :new
-    end
-  end
+    @comment.save!
 
+    render json: @comment
+  end
   private
   def set_article
     @article = Article.find(params[:article_id])

@@ -6,9 +6,18 @@
       = link_to root_path do
         .comments_top_back back
 
-    - @comments.each do |comment|
-      .comment
-        .comment_avatar= image_tag comment.user.avatar_image
-        %p= comment.user.account_name
-        %p= comment.content
-    .comment_post= link_to '投稿', new_article_comment_path(@article)
+    .comments-container
+    -# - @comments.each do |comment|
+    -#   .comment
+    -#     .comment_avatar= image_tag comment.user.avatar_image
+    -#     %p= comment.user.account_name
+    -#     %p= comment.content
+    -# = link_to new_article_comment_path(@article) do
+    .comments_post
+      = image_tag 'comment.png'
+    .comments_text_area.hidden
+      = text_area_tag :comment_content, '', class: 'sm'
+      .btn-secondary.comment-btn
+        コメントを追加
+
+= javascript_pack_tag 'comment'

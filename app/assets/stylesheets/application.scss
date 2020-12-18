@@ -15,6 +15,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   height: 100%;
+
 }
 
 *,
@@ -39,25 +40,4 @@ a {
 .container {
   padding: 0px 16px;
   width: 100%;
-}
-
-.float_btn {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  width: 64px;
-  height: 64px;
-  border-radius: 100%;
-  text-align: center;
-  background-color: $primary-color;
-  color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-
-  i {
-    margin-top: 22px;
-  }
-
-  .hidden {
-    display: none;
-  } 
 }
