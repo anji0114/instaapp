@@ -1,7 +1,7 @@
 - articles.each do |article|
   .article{data: {article_id: article.id}}
     .user
-      .user_avatar= image_tag article.user.avatar_image
+      .user-avatar= image_tag article.user.avatar_image
       .user_info
         .user_info_name
           %p= article.user.account_name
@@ -22,7 +22,8 @@
         .inactive-heart.hidden
           = image_tag 'heart.png'
         .comment-btn
-          = image_tag 'comment.png'
+          = link_to article_comments_path(article.id) do
+            = image_tag 'comment.png'
         = link_to "http://twitter.com/share?url=https://localhost:3000/articles/#{article.id}&text=投稿をシェア"  do
           = image_tag 'share.png'
     .article_content

@@ -1,0 +1,72 @@
+@import './variables'; 
+$user-avatar-size: 30px;
+.comments {
+  &_top {
+    position: relative;
+    margin-top: 40px;
+    &_title {
+      text-align: center;
+      font-size: 16px;
+      color: #333A42;
+    }
+     &_back {
+       position: absolute;
+       top: 0;
+     }
+  }
+
+  .comment_avatar {
+    width: $user-avatar-size;
+    height: $user-avatar-size;
+    margin: auto 0;
+
+    img {
+      width: $size-percent;
+      height: $size-percent;
+      border-radius: $size-percent;
+    }
+  }
+
+  &_post {
+    width: 100%;
+    margin-top: 150px;
+    border: 1px solid #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+
+    img {
+      display: block;
+      margin: auto 0;
+      padding: 12px 21px;
+    }
+  }
+
+  &_text_area {
+    width: 100%;
+    margin-top: 20px;
+    .sm {
+      width: 100%;
+      min-height: 160px;
+    }
+  }
+
+  &_container {
+    margin-top: 52px;
+    .comment {
+      display: flex;
+      margin-bottom: 32px;
+
+    &_info {
+      margin-left: 14px;
+      width: 90%;
+      color: #333333;
+    }
+    
+    &_content {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #9B9B9B;
+      word-wrap: break-word;
+    }
+    }
+  }
+}

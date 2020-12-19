@@ -1,0 +1,17 @@
+.container
+  .comments{data: {article_id: @article.id}}
+    .comments_top
+      .comments_top_title 
+        %p Comment
+      = link_to root_path do
+        .comments_top_back back
+
+    .comments_container
+    .comments_post
+      = image_tag 'comment.png'
+    .comments_text_area.hidden
+      = text_area_tag :comment_content, '', class: 'sm'
+      .btn-secondary.comment-btn
+        コメントを追加
+
+= javascript_pack_tag 'comment'

@@ -28,6 +28,7 @@
   &.mini {
     min-width: 100px;
     text-align: center;
+    font-size: 12px;
   }
 }
 
@@ -44,4 +45,19 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-avatar {
+  width: $user-avatar-size;
+  height: $user-avatar-size;
+
+  img {
+    width: $size-percent;
+    height: $size-percent;
+    border-radius: $size-percent;
+  }
 }
