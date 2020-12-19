@@ -14,7 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const comments = response.data
       comments.forEach((comment)=> {
         $('.comments-container').append(
-          `<div><p>${comment.content} ${comment.user_id}</p></div>`
+          `<div class=comment'>
+            <div class='user_avatar'>
+              <image src= '${comment.avatar_image}'>
+            </div>
+            <div class='comment_content'>
+              <p>${comment.account_name}</p>
+              <p>${comment.content}</p>
+            </div>
+          </div>`
         )
       })
     })

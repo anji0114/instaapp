@@ -7,9 +7,6 @@ $user-avatar-size: 30px;
 
 
 .article {
-  width: $size-percent;
-  margin-top: 40px;
-
   .user {
     display: flex;
     margin-bottom: 18px;
@@ -41,6 +38,9 @@ $user-avatar-size: 30px;
       }
     }
   }
+  width: $size-percent;
+  margin-top: 40px;
+
   .pictures {
     margin-bottom: 13px;
     width: 100%;
