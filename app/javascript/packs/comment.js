@@ -10,19 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('.comments').data()
   const articleId = dataset.articleId
   axios.get(`/api/articles/${articleId}/comments`)
-    .then( (response) => {
-      const comments = response.data
+    .then( (res) => {
+      const comments = res.data
       comments.forEach((comment)=> {
-        $('.comments-container').append(
-          `<div class=comment'>
-            <div class='user_avatar'>
-              <image src= '${comment.avatar_image}'>
-            </div>
-            <div class='comment_content'>
-              <p>${comment.account_name}</p>
-              <p>${comment.content}</p>
-            </div>
-          </div>`
+        $('.comments_container').append(
+        `<div class='comment'>
+          <div class='user-avatar'>
+            <image src= '${comment.avatar_image}'>
+          </div>
+          <div class='comment_info'>
+            <p>${comment.account_name}</p>
+            <p class='comment_content'>${comment.content}</p>
+          </div>
+        </div>`
         )
       })
     })
@@ -37,16 +37,30 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then((res) => {
           const comment = res.data
-          $('.comments-container').append(
-            `<div><p>${comment.content} ${comment.user_id}</p></div>`
+          $('.comments_container').append(
+            `<div class='comment'>
+              <div class='user-avatar'>
+                <image src= '${comment.avatar_image}'>
+              </div>
+              <div class='comment_info'>
+                <p>${comment.account_name}</p>
+                <div class='comment_content'>
+                  <p>${comment.content}</p>
+                </div>
+              </div>
+            </div>`
           )
           $('#comment_content').val('')
+        })
+
+        .catch((e)=> {
+          window.alert(e)
         })
       }
     })
 
     $('.comments_post').on('click', () => {
-      // $('.comments_post').addClass('hidden')
-      $('.comments_text_area').toggleClass('hidden')
+      $('.comments_post').addClass('hidden')
+      $('.comments_text_area').removeClass('hidden')
     })
 })

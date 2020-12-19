@@ -50,3 +50,14 @@
 .hidden {
   display: none;
 }
+
+.user-avatar {
+  width: $user-avatar-size;
+  height: $user-avatar-size;
+
+  img {
+    width: $size-percent;
+    height: $size-percent;
+    border-radius: $size-percent;
+  }
+}

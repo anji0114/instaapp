@@ -7,23 +7,14 @@ $user-avatar-size: 30px;
 
 
 .article {
+  .user-avatar {
+    margin: auto 0;
+  }
   .user {
     display: flex;
     margin-bottom: 18px;
     position: relative;
-  
-    &_avatar {
-      width: $user-avatar-size;
-      height: $user-avatar-size;
-      margin: auto 0;
-  
-      img {
-        width: $size-percent;
-        height: $size-percent;
-        border-radius: $size-percent;
-      }
-    }
-  
+
     &_info {
       margin: 0 8px;
       &_name {

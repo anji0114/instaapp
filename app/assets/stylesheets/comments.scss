@@ -39,17 +39,34 @@ $user-avatar-size: 30px;
       padding: 12px 21px;
     }
   }
-  .comment {
-    margin-top: 30px;
-  }
 
   &_text_area {
     width: 100%;
     margin-top: 20px;
     .sm {
-      // border: none;
       width: 100%;
       min-height: 160px;
+    }
+  }
+
+  &_container {
+    margin-top: 52px;
+    .comment {
+      display: flex;
+      margin-bottom: 32px;
+
+    &_info {
+      margin-left: 14px;
+      width: 90%;
+      color: #333333;
+    }
+    
+    &_content {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #9B9B9B;
+      word-wrap: break-word;
+    }
     }
   }
 }
