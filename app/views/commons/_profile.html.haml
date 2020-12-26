@@ -1,0 +1,18 @@
+.container
+  .profile
+    .account_name= user.account_name
+    .profile_image.old-avatar
+      = image_tag user.avatar_image
+    .profile_image.new-avatar.hidden
+      = image_tag '', id: 'new-avatar'
+    .profile_info
+      .profile_info_posts
+        %P= user.articles.count
+        %P Posts
+      .profile_info_followers
+        %p 10
+        %p Followers
+      .profile_info_following
+        %p 10
+        %p Following
+    = render 'commons/articles', articles: user.articles
