@@ -1,6 +1,16 @@
 .container
   .profile
-    .account_name= user.account_name
+    .profile_header
+      .profile_header_back
+        = link_to :back do
+          %p back
+      .account_name= user.account_name
+      .follow-btn
+        - if user != current_user
+          - if current_user&.has_followed?(user)
+            = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}
+          - else
+            = link_to 'Follow', account_follows_path(user), data: {method: 'post'}
     .profile_image.old-avatar
       = image_tag user.avatar_image
     .profile_image.new-avatar.hidden
@@ -10,9 +20,9 @@
         %P= user.articles.count
         %P Posts
       .profile_info_followers
-        %p 10
+        %p= user.followers.count
         %p Followers
       .profile_info_following
-        %p 10
+        %p= user.followings.count
         %p Following
     = render 'commons/articles', articles: user.articles

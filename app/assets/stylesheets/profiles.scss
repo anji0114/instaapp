@@ -1,9 +1,28 @@
 $image_size: 76px;
 .profile {
+  position: relative;
+  &_header {
+    display: flex;
+    padding-top: 46px;
+
+    &_back {
+      position: absolute;
+      left: 0;
+    }
+  }
   .account_name {
     font-size: 16px;
     text-align: center;
-    padding-top: 46px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+  }
+
+  .follow-btn {
+    position: absolute;
+    right: 0;
   }
 
   &_image{
