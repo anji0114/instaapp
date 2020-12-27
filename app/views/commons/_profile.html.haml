@@ -1,28 +1,26 @@
 .container
-  .profile
+  .profile{data: {account_id: user.id, user_id: current_user.id}}
     .profile_header
       .profile_header_back
         = link_to :back do
           %p back
       .account_name= user.account_name
-      .follow-btn
-        - if user != current_user
-          - if current_user&.has_followed?(user)
-            = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}
-          - else
-            = link_to 'Follow', account_follows_path(user), data: {method: 'post'}
+      .follow-act
+        -if user_signed_in?
+          .follow-btn.hidden Follow
+          .unfollow-btn.hidden Unfollow
     .profile_image.old-avatar
       = image_tag user.avatar_image
     .profile_image.new-avatar.hidden
       = image_tag '', id: 'new-avatar'
     .profile_info
-      .profile_info_posts
+      %div
         %P= user.articles.count
-        %P Posts
-      .profile_info_followers
+        .profile_info_title Posts
+      %div
         %p= user.followers.count
-        %p Followers
-      .profile_info_following
+        .profile_info_title Followers
+      %div
         %p= user.followings.count
-        %p Following
+        .profile_info_title Following
     = render 'commons/articles', articles: user.articles
