@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const userId = dataset.userId
   axios.get(`/accounts/${accountId}/follows/${userId}`)
     .then((response) => {
-      console.log(response)
       const hasFollowed = response.data.hasFollowed
-      console.log(hasFollowed)
       if (hasFollowed){
         $('.unfollow-btn').removeClass('hidden')
       } else {
@@ -37,9 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
           $('.follow-btn').removeClass('hidden')
           $('.unfollow-btn').addClass('hidden')
         }
-      })
-      .catch((e) => {
-        window.alert(e)
       })
   })
 })

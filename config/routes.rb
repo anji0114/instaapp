@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :update]
+
   resources :accounts, only: [:show] do
     resources :follows, only: [:show ,:create]
     resources :unfollows, only: [:create]
+    resources :followers, only: [:index]
+    resources :followings, only: [:index]
   end
 
   namespace :api, defaults: {format: :json} do

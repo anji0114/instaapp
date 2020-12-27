@@ -1,10 +1,10 @@
 .container
   .profile{data: {account_id: user.id, user_id: current_user.id}}
-    .profile_header
-      .profile_header_back
+    .header
+      .header_back
         = link_to :back do
           %p back
-      .account_name= user.account_name
+      .header_title= user.account_name
       .follow-act
         -if user_signed_in?
           .follow-btn.hidden Follow
@@ -18,9 +18,11 @@
         %P= user.articles.count
         .profile_info_title Posts
       %div
-        %p= user.followers.count
+        = link_to account_followers_path(user.id) do
+          .count= user.followers.count
         .profile_info_title Followers
       %div
-        %p= user.followings.count
+        = link_to account_followings_path(user.id) do
+          %p= user.followings.count
         .profile_info_title Following
     = render 'commons/articles', articles: user.articles
