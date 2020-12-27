@@ -1,0 +1,7 @@
+.container
+  .header
+    .header_back
+      = link_to :back do
+        %p back
+    .header_title Followers
+  = render 'commons/follows', follows: @followers

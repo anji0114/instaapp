@@ -1,23 +1,7 @@
-.container
-  .profile
-    .account_name= @account_name
-    .profile_image.old-avatar
-      = image_tag current_user.avatar_image
-    .profile_image.new-avatar.hidden
-      = image_tag '', id: 'new-avatar'
-    .profile_info
-      .profile_info_posts
-        %P 10
-        %P Posts
-      .profile_info_followers
-        %p 10
-        %p Followers
-      .profile_info_following
-        %p 10
-        %p Following
-    = render 'commons/articles', articles: current_user.articles
-  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
-    .hidden
-      = f.file_field :avatar, class: 'avatar-post'
-      = f.submit '保存', class: 'avatar-btn'
+= render 'commons/profile', user: current_user
+
+= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+  .hidden
+    = f.file_field :avatar, class: 'avatar-post'
+    = f.submit '保存', class: 'avatar-btn'
 = javascript_pack_tag 'profile'

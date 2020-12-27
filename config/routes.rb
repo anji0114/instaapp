@@ -7,11 +7,19 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'articles#index'
-  resource :profile, only: [:show, :update]
 
   resources :articles do
     resource :like, only: [:show, :create, :destroy]
     resources :comments, only: [:index]
+  end
+
+  resource :profile, only: [:show, :update]
+
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:show ,:create]
+    resources :unfollows, only: [:create]
+    resources :followers, only: [:index]
+    resources :followings, only: [:index]
   end
 
   namespace :api, defaults: {format: :json} do

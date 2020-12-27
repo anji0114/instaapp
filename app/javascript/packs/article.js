@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // jqueryでいいねを表示
     axios.get(`/articles/${articleId}/like`)
     .then((response) => {
-      console.log(response)
       const hasLiked = response.data.hasLiked
       handleHeartDisplay(hasLiked)
     })
