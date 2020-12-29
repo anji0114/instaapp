@@ -14,7 +14,6 @@ class Article < ApplicationRecord
     likes.count
   end
 
-
   private
   def validate_pictures
     return if pictures.count <= 4
