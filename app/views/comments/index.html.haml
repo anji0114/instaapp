@@ -1,11 +1,10 @@
 .container
   .comments{data: {article_id: @article.id}}
-    .comments_top
-      .comments_top_title 
-        %p Comment
-      = link_to root_path do
-        .comments_top_back back
-
+    .header
+      .header_back
+        = link_to :back do
+          %p back
+      .header_title Comments
     .comments_container
     .comments_post
       = image_tag 'comment.png'

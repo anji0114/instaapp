@@ -5,8 +5,9 @@ $user-avatar-size: 30px;
   border-bottom: 1px solid #9e9e9e;
 }
 
-
 .article {
+  width: $size-percent;
+  margin-top: 40px;
   .user-avatar {
     margin: auto 0;
   }
@@ -29,14 +30,12 @@ $user-avatar-size: 30px;
       }
     }
   }
-  width: $size-percent;
-  margin-top: 40px;
 
   .pictures {
     margin-bottom: 13px;
     width: 100%;
     img {
-      max-height: 280px;
+      max-height: 300px;
       display: block;
       margin: auto;
       width: auto;

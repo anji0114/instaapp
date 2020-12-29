@@ -1,18 +1,5 @@
 @import './variables'; 
 .comments {
-  &_top {
-    position: relative;
-    margin-top: 40px;
-    &_title {
-      text-align: center;
-      font-size: 16px;
-      color: #333A42;
-    }
-     &_back {
-       position: absolute;
-       top: 0;
-     }
-  }
 
   .comment_avatar {
     width: $user-avatar-size;
