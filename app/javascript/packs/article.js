@@ -50,5 +50,40 @@ document.addEventListener('DOMContentLoaded', () => {
           window.alert(e)
         })
     })
+
+    // 画像のスライド
+    const slide = () => {
+      let count = 0
+      const images = $(val).find('.pictures')
+      const imageNum = images.length
+      const arrow = () => {
+        if (count === 0) {
+          $(val).find('.arrow_left').addClass('hidden')
+        } else {
+          $(val).find('.arrow_left').removeClass('hidden')
+        }
+        if (count === imageNum - 1) {
+          $(val).find('.arrow_right').addClass('hidden')
+        } else {
+          $(val).find('.arrow_right').removeClass('hidden')
+        }
+      }
+
+      $(images[0]).removeClass('hidden')
+      $(val).find('.arrow_right').on('click', () => {
+        count += 1
+        $(images[count]).removeClass('hidden')
+        $(images[count - 1]).addClass('hidden')
+        arrow()
+      })
+      $(val).find('.arrow_left').on('click', () => {
+        count -= 1
+        $(images[count]).removeClass('hidden')
+        $(images[count + 1]).addClass('hidden')
+        arrow()
+      })
+      arrow()
+    }
+    slide()
   })
 })
