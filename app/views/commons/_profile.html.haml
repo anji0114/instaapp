@@ -19,7 +19,7 @@
         .profile_info_title Posts
       %div
         = link_to account_followers_path(user.id) do
-          .count= user.followers.count
+          .followers-count= user.followers.count
         .profile_info_title Followers
       %div
         = link_to account_followings_path(user.id) do

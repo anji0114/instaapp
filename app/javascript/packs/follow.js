@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.data.status === 'ok') {
           $('.follow-btn').addClass('hidden')
           $('.unfollow-btn').removeClass('hidden')
+          $('.followers-count').html(response.data.followersCount)
         }
       })
       .catch((e) => {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.data.status === 'ok') {
           $('.follow-btn').removeClass('hidden')
           $('.unfollow-btn').addClass('hidden')
+          $('.followers-count').html(response.data.followersCount)
         }
       })
   })
