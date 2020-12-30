@@ -36,6 +36,19 @@ $user-avatar-size: 30px;
     width: 100%;
     position: relative;
 
+    .page {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border-radius: 3px;
+      font-size: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+
+      &_num {
+        padding: 3px 5px;
+      }
+    }
     .arrow {
       img {
         width: 20px;

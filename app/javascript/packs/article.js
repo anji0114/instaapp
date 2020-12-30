@@ -69,20 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      const pageNum = () => {
+        if (imageNum > 1) {
+          $(val).find('.page').html(
+            `<div class = 'page_num'>${count + 1}/${imageNum}</div>`
+          )
+        }
+      }
+
       $(images[0]).removeClass('hidden')
       $(val).find('.arrow_right').on('click', () => {
         count += 1
         $(images[count]).removeClass('hidden')
         $(images[count - 1]).addClass('hidden')
         arrow()
+        pageNum()
       })
       $(val).find('.arrow_left').on('click', () => {
         count -= 1
         $(images[count]).removeClass('hidden')
         $(images[count + 1]).addClass('hidden')
         arrow()
+        pageNum()
       })
       arrow()
+      pageNum()
     }
     slide()
   })
