@@ -4,7 +4,7 @@
       %li= message
   = form_with(model: @article, url: articles_path, method: 'post', local: true) do |f|
     .post-header
-      %p= link_to 'Cance', root_path, class:'cancel-btn'
+      %p= link_to 'Cance', :back, class:'cancel-btn'
       %p Status
       = f.submit 'Post', class: 'post-btn'
     .post_user
