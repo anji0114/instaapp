@@ -10,4 +10,8 @@
     %meta{:content => "width=device-width, initail-scale=1.0", :name => "viewport"}/
     %link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
   %body
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => "key"}= value
     = yield

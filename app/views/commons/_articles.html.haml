@@ -14,7 +14,11 @@
           .dropdown-content.mini
             = link_to '削除する', article_path(article), data: {method: 'delete', confirm: '本当に削除してもいいですか'}
     - article.pictures.each do |picture|
-      .pictures
+      .pictures.hidden
+        .page
+        .arrow
+          .arrow_left= image_tag 'left-arrow.png'
+          .arrow_right= image_tag 'right-arrow.png'
         = image_tag picture
     .article_active
       -if user_signed_in?

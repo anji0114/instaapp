@@ -1,9 +1,6 @@
 @import './variables'; 
 $user-avatar-size: 30px;
 
-.link {
-  border-bottom: 1px solid #9e9e9e;
-}
 
 .article {
   width: $size-percent;
@@ -34,6 +31,45 @@ $user-avatar-size: 30px;
   .pictures {
     margin-bottom: 13px;
     width: 100%;
+    position: relative;
+
+    .page {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border-radius: 3px;
+      font-size: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+
+      &_num {
+        padding: 3px 5px;
+      }
+    }
+    .arrow {
+      img {
+        width: 20px;
+      }
+      &_left{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 1;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+      }
+      &_right{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 1;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+      }
+    }
+
     img {
       max-height: 300px;
       display: block;
