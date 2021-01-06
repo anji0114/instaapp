@@ -27,6 +27,7 @@ gem 'active_model_serializers'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
+gem 'faker'
 gem 'hamlit'
 gem 'sidekiq'
 
@@ -41,6 +42,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'rubocop-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
