@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  # it 'contentが入力されていれば、commentを保存できる' do
-  #   user = User.create!({
-  #     email: 'test@example.com',
-  #     account_name: 'test1',
-  #     password: 'password'
-  #   })
-  #   comment = user.comments.build({
-  #       content: Faker::Lorem.characters(number: 10)
-  #   })
-  #     expect(comment).to be_valid
-  #   end
+  context 'contentが入力されている場合' do
+    let!(:user) {create(:user)}
+    let!(:article) { create(:article, user: user)}
+
+    let!(:comment) {build(:comment, user: user, article: article)}
+    it 'commentを保存できる' do
+      expect(comment).to be_valid
+    end
+  end
 end
