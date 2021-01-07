@@ -3,6 +3,7 @@ class Article < ApplicationRecord
 
   validates :pictures, presence: true
   validate :validate_pictures
+  validates :content, length: { maximum: 100 }
 
   belongs_to :user
 
