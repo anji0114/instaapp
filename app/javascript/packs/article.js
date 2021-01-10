@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let articleId = dataset.articleId
 
     // jqueryでいいねを表示
-    axios.get(`/articles/${articleId}/like`)
+    axios.get(`/api/articles/${articleId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
       handleHeartDisplay(hasLiked)
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // jqueryでいいね取得
     $(val).find('.inactive-heart').on('click', () => {
-      axios.post(`/articles/${articleId}/like`)
+      axios.post(`/api/articles/${articleId}/like`)
         .then((response) => {
           if (response.data.status === 'ok') {
             $(val).find('.active-heart').removeClass('hidden')
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // jqueryでいいね解除
     $(val).find('.active-heart').on('click', () => {
-      axios.delete(`/articles/${articleId}/like`)
+      axios.delete(`/api/articles/${articleId}/like`)
         .then((response) => {
           if (response.data.status === 'ok') {
             $(val).find('.inactive-heart').removeClass('hidden')

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   def index
     @articles = Article.all
   end
@@ -20,12 +20,6 @@ class ArticlesController < ApplicationController
       flash.now[:error] = '保存に失敗しました'
       render :new
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
