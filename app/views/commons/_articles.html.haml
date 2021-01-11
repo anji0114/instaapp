@@ -33,4 +33,6 @@
           = image_tag 'share.png'
     .article_content
       %p= article.content
-= javascript_pack_tag 'article'
+= javascript_pack_tag 'slide_image'
+-if user_signed_in?
+  = javascript_pack_tag 'article'
