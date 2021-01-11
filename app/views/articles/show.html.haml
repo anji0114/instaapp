@@ -1,4 +1,9 @@
 .container
+  .header
+    .header_back
+      = link_to root_path do
+        %p 記事一覧へ
+    .header_title Article
   .article{data: {article_id: @article.id}}
     .user
       = link_to account_path(@article.user) do
@@ -33,4 +38,6 @@
           = image_tag 'share.png'
     .article_content
       %p= @article.content
-= javascript_pack_tag 'article'
+= javascript_pack_tag 'slide_image'
+-if user_signed_in?
+  = javascript_pack_tag 'article'

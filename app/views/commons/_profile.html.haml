@@ -4,7 +4,7 @@
       .header_back
         = link_to :back do
           %p back
-      .header_title= user.account_name
+      .header_title.account_name= user.account_name
       .follow-act
         -if user_signed_in?
           .follow-btn.hidden Follow
